@@ -312,6 +312,20 @@ SEÇÃO 5: Containers
             docker cp <nome_container> ou <id_container>/<diretório_container>/<nome_arquivo_extenca> <onde_vc_quer_savar>
 
 
+SEÇÃO 6: Docker compose
+    60. Instalando o Docker Compose
+        verificando se o docker-compose está instalado
+            docker-compose --version
+
+    61. Limpando a maquina local
+        limpado todas as imagens
+            docker rmi -f $(doker images -q)
+        limpando todas os container
+            doker rm -f $(doker rm -aq)
+            
+
+
+
     
         
 
