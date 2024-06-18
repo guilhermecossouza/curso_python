@@ -323,6 +323,126 @@ SEÇÃO 6: Docker compose
         limpando todas os container
             doker rm -f $(doker rm -aq)
             
+    62. Download do projeto Netflix
+        Esse projeto é dividido em 3 partes:
+            banco de dados -> MongoDb
+            backend
+            front-end
+        
+        Será criado um container para cada um dessas partes.
+
+    63. Rodando o projeto Netflix
+        No arquivo docker-compose.yml contem todas as instruções sobre os containers que vam subir
+        comandos:
+            Esse comando vai construir o docker
+            docker-compose up
+
+    64. A linguagem YAML
+        extenção .yml:
+            Esse arquivo com essa extenção usa a linguagem de programação YAML
+        Regras básicas:
+            Os arquivos com a extenção yaml usam com linguagem de programação YAML
+            é difinida sendo como Data Serialization, ela é uma linguem usada para escrever arquivos de 
+            configuração 
+        é uma linguagem de forte identação
+
+    65. Criando um docker compose file
+        comandos:
+            version: "3.8" é a versóo do docker-compose file
+            services: serviçoo
+                frontend: nome dos containers
+                    depends_on: -> fala que esse container depende de outro container e tem que ficar com primeira lina do container
+                        - backend
+
+                    build: ./frontend -> irá bildar o arquivo Dockerfile que está dentro do diretório    
+                    ports:
+                        - 3000:3000 -> a porta que irá rodar o seu projeto, ou seja quando ele dodar o doker run vao setar o <host>:<porta_docker>
+                    
+
+                backend: nome dos containers
+                    depends_on: -> fala que esse container depende de outro container e tem que ficar com primeira lina do container
+                        - db
+                    build: ./backend -> irá bildar o arquivo Dockerfile que está dentro do diretório   
+                    ports:
+                        - 3001:3001 -> a porta que irá rodar o seu projeto, ou seja quando ele dodar o doker run vao setar o <host>:<porta_docker>                    
+
+                    OBS: O comando a baixo serve para conectar o meu backend ao meu banco de dados
+                    environment: 
+                        DB_URL: mongodb://db/vidly
+                    command: ./docker-entrypoint.sh
+
+                db: nome dos containers
+                    imagem: mongo:4.0-xenial define a imagem que irá baixar docker hub
+                    ports:
+                        OBS: sempre verificar a porta na documentação do banco de dados que vai usar
+                        - 27017:27017
+                    volumes:
+                        - vidly:/data/db
+
+            volumes:
+                vidly:
+    
+    66. Rodando e parando o docker compose
+        comandos:
+            verificar as opções no docker-compose
+                docker-compose --help
+            
+            Se as imagens não tiverem sido construidas ele vai construir
+                docker-compose up 
+
+            Obrigatoriamente ele vai construir as imagens e vai iniciar o container
+                docker-compose up --build
+
+            Para rodar em background adicionar o -d
+                docker-compose  up -d  
+
+            Para vizualizar os containers
+                docker-compose ps
+
+            Para parar os containers
+                docker-compose down 
+
+    67. A rede do Docker
+        Esse containers precisam se comunicar e eles fazem isso através de rede com ips criados pelo docker
+            frontend
+                ip: 172.19.0.4
+            backend
+                ip: 172.19.0.3
+            db
+                ip: 203.112.194.232
+
+            Comandos para verificar o ip dos containers
+                acessando o primeiro container 
+                    doker exe -it -u root <id_container> sh
+                
+                ifconfig -> vai mostrar a lista de ips
+            
+        O docker por si só tem construido um sistema chamado DNS Resower
+        Toda vex que um container é criado ele atualiza o DNS Resower
+            <nome_container> -> ip xxx.xxx.xx.x
+
+    68. Docker Compose logs
+        para verificar opções
+            docker-compose logs --help
+        Para verificar logs
+            docker-compose logs   
+
+
+
+        
+            
+
+                
+
+
+
+
+            
+
+
+
+        
+
 
 
 
