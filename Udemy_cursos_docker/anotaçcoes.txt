@@ -307,6 +307,10 @@ SEÇÃO 5: Containers
         associar o volume ao meu container
             docker run -d - p 3000:3000 --mame maca -v <nome_volume>:/<diretório_imagem>/<nome_diretorio> <nome_imagem>
 
+        para rodar o container com volume:
+            docker run -v <origem>:<destino> <nome_imagem>
+
+
     58. Copiando arquivos do host para o container
         comandos
             docker cp <nome_container> ou <id_container>/<diretório_container>/<nome_arquivo_extenca> <onde_vc_quer_savar>
