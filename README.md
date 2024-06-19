@@ -28,10 +28,12 @@ Sinta-se à vontade para explorar os projetos neste repositório e ver os exempl
 Espero que esta descrição ajude a entender melhor as habilidades e conhecimentos adquiridos durante os cursos.
 
 Crusos realizados nas paltaformas:
--Curso em video:
+
+Curso em video:
 - ** https://www.cursoemvideo.com/curso/python-3-mundo-1/
 - ** https://www.cursoemvideo.com/curso/python-3-mundo-2/
 - ** https://www.cursoemvideo.com/curso/python-3-mundo-3/
--Udemy
+  
+Udemy
 - ** https://www.udemy.com/course/curso-python-3-completo/
 - ** https://www.udemy.com/course/docker-zero-avancado/
